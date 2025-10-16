@@ -75,7 +75,7 @@
     .pricing-grid{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; }
     .pricing-card{ background:#fff; border:2px solid var(--line); border-radius:14px; padding:1.5rem; position:relative; transition:.25s transform, .25s box-shadow; }
     .pricing-card:hover{ transform: translateY(-4px); box-shadow:0 14px 40px rgba(2,6,23,.08);} 
-    .pricing-card.featured{ border-color: var(--brand-strong); box-shadow:0 14px 40px rgba(249,115,22,.15);} 
+    /* .pricing-card.featured{ border-color: var(--brand-strong); box-shadow:0 14px 40px rgba(249,115,22,.15);}  */
     .popular-badge{ position:absolute; top:-14px; right:18px; background: var(--brand-strong); color:#fff; padding:.4rem .6rem; border-radius:8px; font-weight:800; font-size:.75rem; letter-spacing:.04em; }
     .price{ font-size:2.1rem; font-weight:900; color:var(--brand-dark); }
     .price .period{ font-size:.95rem; color:var(--muted); font-weight:600; }
@@ -84,7 +84,7 @@
     .features-list li{ padding:.45rem 0; color:var(--muted); }
     .features-list li::before{ content:"✔"; color:var(--brand-strong); font-weight:900; margin-right:.5rem; }
     .select-button{ width:100%; padding:.85rem 1rem; background: var(--brand-strong); color:#fff; border:none; border-radius:10px; font-weight:800; cursor:pointer; }
-    .pricing-card.featured .select-button{ background: #111827; }
+    /* .pricing-card.featured .select-button{ background: #111827; } */
 
     /* How it works */
     .how-it-works{ background:#f8fafc; }
@@ -222,7 +222,7 @@
       </div> -->
 
       <!-- <div class="pricing-card featured"> -->
-      <div class="pricing-card"></div>
+      <div class="pricing-card">
         <!-- <span class="popular-badge">MOST POPULAR</span> -->
         <h3>Event Day Rate</h3>
         <div class="price">$400 <span class="period">/ 6 hrs</span></div>
