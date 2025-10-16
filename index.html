@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burn Bright — Arts Studio & Creative Rental Space</title>
+  <meta name="description" content="Burn Bright is a flexible arts studio and creative rental space for photo, video, dance, and events. Book by the hour or become a member."/>
+  <style>
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #0f172a; background:#ffffff; }
+
+    :root{
+      --ink:#0f172a;          /* slate-900 */
+      --muted:#64748b;        /* slate-500 */
+      --line:#e2e8f0;         /* slate-200 */
+      --brand:#fb923c;        /* orange-400 */
+      --brand-strong:#f97316; /* orange-500 */
+      --brand-dark:#ea580c;   /* orange-600 */
+      --brand-2:#22d3ee;      /* cyan-400 */
+      --bg-grad-1:#0f172a;    /* deep */
+      --bg-grad-2:#1f2937;    /* grey */
+      --bg-grad-3:#7c2d12;    /* ember */
+    }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .75rem 5%; background: rgba(255,255,255,.95);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display:flex; align-items:center; gap:.75rem; text-decoration:none; }
+    .logo-img { height: 44px; width: auto; display:block; }
+    .brand-name { font-weight:800; letter-spacing:.5px; color:var(--ink); font-size:1.1rem; }
+    .nav-right { display:flex; align-items:center; gap:2rem; }
+    .nav-links { display:flex; gap:1.25rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--ink); font-weight:600; }
+    .nav-links a:hover { color: var(--brand-dark); }
+    .cta-button { background:var(--brand-strong); color:#fff; padding:.65rem 1rem; border-radius:8px; text-decoration:none; font-weight:700; box-shadow:0 6px 20px rgba(249,115,22,.25);} 
+    .cta-button:hover{ background:var(--brand-dark); }
+
+    /* Hero */
+    .hero {
+      position: relative; color:#fff; min-height: 70vh; display:grid; place-items:center; padding: 5rem 5%;
+      background: radial-gradient(1200px 600px at 80% 10%, rgba(251, 146, 60,.35), transparent 60%),
+                  linear-gradient(135deg, #0b1020 0%, #1e293b 50%, #7c2d12 100%),
+                  url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+    .hero-inner{ max-width: 900px; }
+    .eyebrow{ text-transform:uppercase; letter-spacing:.15em; font-weight:800; color:#e2e8f0; opacity:.9; }
+    .hero h1{ font-size: clamp(2.25rem, 6vw, 4rem); line-height:1.1; margin:.5rem 0 1rem; }
+    .hero p{ font-size: clamp(1rem, 2.4vw, 1.25rem); color:#e5e7eb; max-width: 60ch; }
+    .button-group { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.5rem; }
+    .btn-primary { background:var(--brand); color:#111827; padding: .9rem 1.2rem; border-radius:10px; text-decoration:none; font-weight:800; }
+    .btn-primary:hover{ background:var(--brand-strong); color:#fff; }
+    .btn-secondary { border:2px solid #fff; color:#fff; padding:.85rem 1.2rem; border-radius:10px; text-decoration:none; font-weight:700; }
+    .btn-secondary:hover{ background: rgba(255,255,255,.1); }
+
+    section { padding: 5rem 5%; }
+    .section-title{ text-align:center; font-size: clamp(1.75rem,3.6vw,2.5rem); margin-bottom:.5rem; color:var(--ink); }
+    .section-subtitle{ text-align:center; color:var(--muted); max-width:70ch; margin:0 auto 3rem; }
+
+    /* Features / Spaces */
+    .features{ background:#f8fafc; }
+    .cards{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
+    .card{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.5rem; box-shadow:0 6px 18px rgba(2,6,23,.04); display:flex; flex-direction:column; gap:.5rem; }
+    .card h3{ margin:.25rem 0; font-size:1.2rem; }
+    .card p{ color:var(--muted); font-size:.98rem; }
+    .chip{ display:inline-block; padding:.35rem .6rem; border-radius:999px; background:#fff7ed; color:var(--brand-dark); border:1px solid #fed7aa; font-size:.78rem; font-weight:700; }
+
+    /* Pricing */
+    .pricing-grid{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; }
+    .pricing-card{ background:#fff; border:2px solid var(--line); border-radius:14px; padding:1.5rem; position:relative; transition:.25s transform, .25s box-shadow; }
+    .pricing-card:hover{ transform: translateY(-4px); box-shadow:0 14px 40px rgba(2,6,23,.08);} 
+    .pricing-card.featured{ border-color: var(--brand-strong); box-shadow:0 14px 40px rgba(249,115,22,.15);} 
+    .popular-badge{ position:absolute; top:-14px; right:18px; background: var(--brand-strong); color:#fff; padding:.4rem .6rem; border-radius:8px; font-weight:800; font-size:.75rem; letter-spacing:.04em; }
+    .price{ font-size:2.1rem; font-weight:900; color:var(--brand-dark); }
+    .price .period{ font-size:.95rem; color:var(--muted); font-weight:600; }
+    .pricing-description{ color:var(--muted); min-height:48px; }
+    .features-list{ list-style:none; padding:0; margin:1rem 0 1.25rem; }
+    .features-list li{ padding:.45rem 0; color:var(--muted); }
+    .features-list li::before{ content:"✔"; color:var(--brand-strong); font-weight:900; margin-right:.5rem; }
+    .select-button{ width:100%; padding:.85rem 1rem; background: var(--brand-strong); color:#fff; border:none; border-radius:10px; font-weight:800; cursor:pointer; }
+    .pricing-card.featured .select-button{ background: #111827; }
+
+    /* How it works */
+    .how-it-works{ background:#f8fafc; }
+    .steps{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap:2rem; }
+    .step{ text-align:center; }
+    .step-number{ width:72px; height:72px; margin:0 auto 1rem; display:grid; place-items:center; border-radius:999px; background:#ffe4d6; color:var(--brand-dark); font-weight:900; font-size:1.4rem; }
+
+    /* Rules */
+    .rules .box{ max-width:900px; margin:0 auto; background:#fff7ed; border-left:5px solid var(--brand-dark); padding:1.5rem; border-radius:12px; }
+    .rules-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
+
+    /* Gallery */
+    .gallery{ background: linear-gradient(to bottom, #f8fafc, #eff6ff); }
+    .grid-img{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:10px; }
+    .grid-img img{ width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); }
+
+    /* FAQ */
+    .faq{ background:#f0fdf4; }
+    .faq-container{ max-width:800px; margin:0 auto; }
+    .faq-item{ background:#fff; border:1px solid var(--line); border-radius:10px; margin-bottom:1rem; overflow:hidden; }
+    .faq-question{ padding:1.2rem 1.4rem; cursor:pointer; display:flex; align-items:center; justify-content:space-between; font-weight:800; }
+    .faq-question:hover{ background:#f8fafc; }
+    .faq-answer{ padding:0 1.4rem 1.2rem; color:var(--muted); display:none; }
+    .faq-item.active .faq-answer{ display:block; }
+
+    /* Contact */
+    .contact{ background:#f8fafc; }
+    .contact-container{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:2rem; align-items:center; }
+    .contact-visual{ width:100%; height:520px; border-radius:12px; background:url('https://images.unsplash.com/photo-1526312426976-593c2a6313ad?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; }
+    .form-card{ background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 8px 26px rgba(2,6,23,.06); padding:1.4rem; }
+    .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap:1rem; }
+    .form-group{ margin-bottom:1rem; }
+    label{ display:block; margin-bottom:.4rem; font-weight:700; color:var(--ink); }
+    input, select, textarea{ width:100%; padding:.75rem; border:1px solid var(--line); border-radius:10px; font-size:1rem; }
+    textarea{ min-height:120px; resize:vertical; }
+    .submit-button{ width:100%; padding:1rem; background:var(--brand-strong); color:#fff; border:none; border-radius:10px; font-weight:900; cursor:pointer; }
+    .submit-button:hover{ background:var(--brand-dark); }
+    .privacy-note{ text-align:center; font-size:.85rem; color:var(--muted); margin-top:.5rem; }
+
+    /* Footer */
+    footer{ background:#0b1020; color:#cbd5e1; padding:2rem 5%; text-align:center; }
+    footer a{ color:#e2e8f0; }
+
+    /* Responsive */
+    @media (max-width: 900px){ .nav-links{ display:none; } }
+    @media (max-width: 768px){
+      .hero{ min-height: 64vh; }
+      .contact-container{ grid-template-columns: 1fr; }
+      .contact-visual{ display:none; }
+      .form-row{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#top" class="brand">
+      <!-- Replace src with your logo -->
+      <img class="logo-img" src="https://dummyimage.com/200x60/111827/ffffff&text=BB" alt="Burn Bright Logo"/>
+      <span class="brand-name">Burn Bright</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#spaces">Spaces</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a class="cta-button" href="#contact">Book a Tour</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="top" class="hero" role="banner">
+    <div class="hero-inner">
+      <div class="eyebrow">Arts studio & creative rental</div>
+      <h1>Set the stage. <span style="color:#fde68a">Burn Bright.</span></h1>
+      <p>Flexible, production‑ready space for photo, video, dance rehearsals, pop‑ups, small performances, workshops, and more. Rent by the hour or become a member for priority access and perks.</p>
+      <div class="button-group">
+        <a class="btn-primary" href="#pricing">See Pricing</a>
+        <a class="btn-secondary" href="#spaces">Explore Spaces</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Spaces / Features -->
+  <section id="spaces" class="features">
+    <h2 class="section-title">Spaces that spark creativity</h2>
+    <p class="section-subtitle">Sound‑treated, light‑controllable, and configurable. Bring your idea—we’ll make room for it.</p>
+
+    <div class="cards">
+      <article class="card">
+        <span class="chip">Studio A — 900 sq ft</span>
+        <h3>Photo / Video Cyclorama</h3>
+        <p>High ceilings, seamless backdrop options, blackout curtains, and overhead grid. Perfect for portraits, products, and content shoots.</p>
+      </article>
+
+      <article class="card">
+        <span class="chip">Studio B — 600 sq ft</span>
+        <h3>Movement & Rehearsal</h3>
+        <p>Sprung floor with mirrors and dimmable lighting for dance, theater blocking, classes, and yoga. Bluetooth audio included.</p>
+      </article>
+
+      <article class="card">
+        <span class="chip">Common — 450 sq ft</span>
+        <h3>Lounge / Event Nook</h3>
+        <p>Cozy lounge converts to a micro‑event or pop‑up retail space. Great for artist talks, meetups, and small showcases.</p>
+      </article>
+
+      <article class="card">
+        <span class="chip">Included</span>
+        <h3>Gear & Amenities</h3>
+        <p>Stands, sandbags, basic LED panels, tables, chairs, rolling racks, makeup bar, kitchenette, Wi‑Fi, and free parking.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <h2 class="section-title">Simple pricing, no surprises</h2>
+    <p class="section-subtitle">Book by the hour or save with a membership. Day‑rates and student discounts available.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Hourly</h3>
+        <div class="price">$45 <span class="period">/ hr (Studio B)</span></div>
+        <p class="pricing-description">Best for short sessions and quick shoots. 2‑hour minimum on weekends.</p>
+        <ul class="features-list">
+          <li>Access to Studio B & common areas</li>
+          <li>Basic lighting kit & grip</li>
+          <li>Host on site for support</li>
+          <li>Reschedule up to 24h before</li>
+        </ul>
+        <button class="select-button" onclick="scrollToContact('Hourly')">Check availability</button>
+      </div>
+
+      <div class="pricing-card featured">
+        <span class="popular-badge">MOST POPULAR</span>
+        <h3>Studio A Day Rate</h3>
+        <div class="price">$350 <span class="period">/ 8 hrs</span></div>
+        <p class="pricing-description">Full production day with cyclorama access and gear bundle.</p>
+        <ul class="features-list">
+          <li>Studio A + lounge included</li>
+          <li>Light kit, c‑stands, modifiers</li>
+          <li>Dedicated load‑in window</li>
+          <li>Add HMUA room +$40/day</li>
+        </ul>
+        <button class="select-button" onclick="scrollToContact('Day Rate')">Book a day</button>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Membership</h3>
+        <div class="price">$149 <span class="period">/ month</span></div>
+        <p class="pricing-description">For frequent creators—save on every booking and get priority holds.</p>
+        <ul class="features-list">
+          <li>20% off hourly & day rates</li>
+          <li>2 complimentary hours / month</li>
+          <li>Priority weekend slots</li>
+          <li>Member events & showcases</li>
+        </ul>
+        <button class="select-button" onclick="scrollToContact('Membership')">Join now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section id="how" class="how-it-works">
+    <h2 class="section-title">How booking works</h2>
+    <p class="section-subtitle">We keep it simple so you can focus on creating.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Send your dates</h3>
+        <p>Tell us what you’re planning, headcount, and preferred time window.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Tour or confirm</h3>
+        <p>Come walk the space or jump straight to a soft hold pending payment.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Lock it in</h3>
+        <p>Pay the invoice to confirm. We’ll send access info, load‑in notes, and a gear list.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Create & shine</h3>
+        <p>Host on site for support; add‑ons available if you need extra gear or tech.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- House Rules / Requirements -->
+  <section class="rules">
+    <h2 class="section-title">House rules & requirements</h2>
+    <p class="section-subtitle">A few basics to keep everyone safe and the space pristine.</p>
+    <div class="box">
+      <div class="rules-grid">
+        <div>
+          <h3>Booking & changes</h3>
+          <p>Reschedules free up to 24h before your slot; cancellations within 48h may incur a fee. Overtime billed in 30‑minute increments.</p>
+        </div>
+        <div>
+          <h3>Respect the space</h3>
+          <p>No open flame or haze without prior approval. Tape floors only with gaffer’s. Return gear to carts and leave sets struck.</p>
+        </div>
+        <div>
+          <h3>Insurance</h3>
+          <p>COI required for productions over 15 people or if bringing 3rd‑party vendors. We can recommend providers.</p>
+        </div>
+      </div>
+      <p style="color:var(--muted); margin-top:1rem; font-size:.95rem;">By booking you agree to our studio agreement and liability waiver (provided at confirmation).</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" aria-label="Photo gallery">
+    <h2 class="section-title">A look inside</h2>
+    <p class="section-subtitle">Swap these placeholders with your own photos.</p>
+    <div class="grid-img">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Studio A cyclorama"/>
+      <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1200&auto=format&fit=crop" alt="Lighting setup"/>
+      <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200&auto=format&fit=crop" alt="Makeup bar"/>
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop" alt="Movement rehearsal"/>
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop" alt="Lounge area"/>
+      <img src="https://images.unsplash.com/photo-1486693326701-544ddc12d7d6?q=80&w=1200&auto=format&fit=crop" alt="Event pop-up"/>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2 class="section-title">Frequently asked questions</h2>
+    <p class="section-subtitle">If you don’t see your answer here, just ask—we’re friendly.</p>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What gear is included?<span class="faq-toggle">▼</span></div>
+        <div class="faq-answer">Basic LED panels, stands, sandbags, extension cords, and V‑flats are included. Specialty gear (strobes, continuous kits, mics) is available as an add‑on.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Can I host an audience?<span class="faq-toggle">▼</span></div>
+        <div class="faq-answer">Yes—intimate audience events (up to venue capacity) are allowed with advance notice. Additional staffing and insurance may be required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Do you offer student rates?<span class="faq-toggle">▼</span></div>
+        <div class="faq-answer">We offer 15% off for students with a valid ID Monday–Thursday, subject to availability.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Is there parking?<span class="faq-toggle">▼</span></div>
+        <div class="faq-answer">Free on‑site parking and street parking are available. Load‑in zone at the rear entrance.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Booking Form -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Book a tour or check availability</h2>
+    <p class="section-subtitle">Tell us a bit about your project and preferred dates. We typically respond within a few hours.</p>
+
+    <div class="contact-container">
+      <div class="contact-visual" aria-hidden="true"></div>
+
+      <div class="form-card">
+        <!-- Replace action with your Google Form endpoint if desired -->
+        <form id="bookingForm" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first">First name</label>
+              <input id="first" name="first" type="text" placeholder="Alex" required />
+            </div>
+            <div class="form-group">
+              <label for="last">Last name</label>
+              <input id="last" name="last" type="text" placeholder="Rivera" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 555‑5555" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="space">Space</label>
+              <select id="space" name="space" required>
+                <option value="" disabled selected>Select a space</option>
+                <option>Studio A (cyclorama)</option>
+                <option>Studio B (movement)</option>
+                <option>Lounge / Event</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Preferred date</label>
+              <input id="date" name="date" type="date" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="Tell us what you’re planning, headcount, gear needs, and ideal time window." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-button">Send request</button>
+          <p class="privacy-note">We’ll never share your info. By submitting you agree to our studio terms.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> Burn Bright. All rights reserved. • <a href="#contact">Contact</a></p>
+  </footer>
+
+  <script>
+    // FAQ toggle
+    function toggleFaq(el){
+      const item = el.parentElement;
+      document.querySelectorAll('.faq-item').forEach(i => { if(i!==item) i.classList.remove('active'); });
+      item.classList.toggle('active');
+    }
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Helper to prefill interest from pricing buttons
+    function scrollToContact(plan){
+      const target = document.getElementById('contact');
+      if(target){ target.scrollIntoView({behavior:'smooth'}); }
+      setTimeout(() => {
+        const msg = document.getElementById('message');
+        if(msg && (!msg.value || !msg.value.includes('Interest:'))){ msg.value = `Interest: ${plan}\n` + msg.value; msg.focus(); }
+      }, 400);
+    }
+
+    // Demo submit (replace with real endpoint or Google Form)
+    document.getElementById('bookingForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Thanks! We\'ll confirm availability shortly.');
+      this.reset();
+      document.getElementById('space').selectedIndex = 0;
+    });
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
