@@ -71,7 +71,7 @@
     .card p{ color:var(--muted); font-size:.98rem; }
     .chip{ display:inline-block; padding:.35rem .6rem; border-radius:999px; background:#fff7ed; color:var(--brand-dark); border:1px solid #fed7aa; font-size:.78rem; font-weight:700; }
 
-    /* Pricing */
+    /* Rentals */
     .pricing-grid{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; }
     .pricing-card{ background:#fff; border:2px solid var(--line); border-radius:14px; padding:1.5rem; position:relative; transition:.25s transform, .25s box-shadow; }
     .pricing-card:hover{ transform: translateY(-4px); box-shadow:0 14px 40px rgba(2,6,23,.08);} 
@@ -174,9 +174,11 @@
   </header>
 
   <!-- About -->
-  <section id="about" class="features">
-    <h2 class="section-title">Space that spark creativity</h2>
-    <p class="section-subtitle">Vibrant, chic, and configurable. Bring your idea—we’ll make room for it.</p>
+  <section id="about" class="about">
+    <h2 class="section-title">About Burn Bright</h2>
+    <p class="section-subtitle">Burn Bright is a space for artists to come together and be themselves. 
+    We offer space for artists and creators that is vibrant, comfortable, and configurable.
+    Bring your idea; we’ll make room for it.</p>
     <div class="cards">
       <!-- <article class="card">
         <span class="chip">Studio A — 900 sq ft</span>
@@ -185,15 +187,15 @@
       </article> -->
 
       <article class="card">
-        <span class="chip">Put Down Creative Roots</span>
-        <h3>Office Space Rental</h3>
-        <p>Cozy spaces for artists to be themselves. Perfect for having your own dedicated creative and working space.</p>
-      </article>
-
-      <article class="card">
         <span class="chip">Host Your Event</span>
         <h3>Lounge / Event Nook</h3>
         <p>Spacious lounge converts to a micro‑event or pop‑up retail space. Great for artist talks, meetups, and small showcases.</p>
+      </article>
+
+      <article class="card">
+        <span class="chip">Put Down Creative Roots</span>
+        <h3>Office Space Rental</h3>
+        <p>Cozy spaces for artists to be themselves. Perfect for having your own dedicated creative and working space.</p>
       </article>
 
       <article class="card">
@@ -205,7 +207,7 @@
   </section>
 
   <!-- Rentals -->
-  <section id="pricing">
+  <section id="rentals" class="rentals">
     <h2 class="section-title">Event & Space Rental</h2>
     <p class="section-subtitle">We have a spacious common area perfect for art workshops, gallery-style events, classes, meetings, podcasts, and more. 
       We also offer space for artists or small businesses, subject to availability.</p>
@@ -221,7 +223,23 @@
           <li>Seating, tables, lighting</li>
           <li>Load in bay</li>
           <li>Wifi</li>
-          <li>kitchenette</li>
+          <li>Kitchenette</li>
+          <li>Parking</li>
+        </ul>
+        <button class="select-button" onclick="scrollToContact('Day Rate')">Book a day</button>
+      </div>
+      <div class="pricing-card">
+        <!-- <span class="popular-badge">MOST POPULAR</span> -->
+        <h3>Pricing</h3>
+        <!-- <div class="price">$400 <span class="period">/ 6 hrs</span></div> -->
+        <p class="pricing-description">Contact us for pricing information and availability.</p>
+        <ul class="features-list">
+          <li>Common area lounge included</li>
+          <li>Seating, tables, lighting</li>
+          <li>Load in bay</li>
+          <li>Wifi</li>
+          <li>Kitchenette</li>
+          <li>Parking</li>
         </ul>
         <button class="select-button" onclick="scrollToContact('Day Rate')">Book a day</button>
       </div>
@@ -294,7 +312,7 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="faq">
+  <!-- <section id="faq" class="faq">
     <h2 class="section-title">Frequently asked questions</h2>
     <p class="section-subtitle">If you don’t see your answer here, just ask—we’re friendly.</p>
 
@@ -316,7 +334,7 @@
         <div class="faq-answer">Free on‑site parking and street parking are available. Load‑in zone at the rear entrance.</div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Contact / Booking Form -->
   <section id="contact" class="contact">
