@@ -63,8 +63,8 @@
     .section-title{ text-align:center; font-size: clamp(1.75rem,3.6vw,2.5rem); margin-bottom:.5rem; color:var(--ink); }
     .section-subtitle{ text-align:center; color:var(--muted); max-width:70ch; margin:0 auto 3rem; }
 
-    /* Features / Spaces */
-    .features{ background:#f8fafc; }
+    /* About */
+    .about{ background:#f8fafc; }
     .cards{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
     .card{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.5rem; box-shadow:0 6px 18px rgba(2,6,23,.04); display:flex; flex-direction:column; gap:.5rem; }
     .card h3{ margin:.25rem 0; font-size:1.2rem; }
@@ -113,7 +113,8 @@
     /* Contact */
     .contact{ background:#f8fafc; }
     .contact-container{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:2rem; align-items:center; }
-    .contact-visual{ width:100%; height:520px; border-radius:12px; background:url('https://images.unsplash.com/photo-1526312426976-593c2a6313ad?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; }
+    .contact-visual{ width:100%; height:520px; border-radius:12px; 
+    background:url('Images/600KingST.JPG') center/cover no-repeat; }
     .form-card{ background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 8px 26px rgba(2,6,23,.06); padding:1.4rem; }
     .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap:1rem; }
     .form-group{ margin-bottom:1rem; }
@@ -148,12 +149,14 @@
     </a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#spaces">Spaces</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rentals">Rentals</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
+        <li><a href="friends">Friends</a></li>
+        <!-- <li><a href="#faq">FAQ</a></li> -->
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <a class="cta-button" href="#contact">Book a Tour</a>
+      <!-- <a class="cta-button" href="#contact">Contact/Booking</a> -->
     </div>
   </nav>
 
@@ -164,17 +167,16 @@
       <h1>Set the stage. <span style="color:#fde68a">Burn Bright.</span></h1>
       <p>Flexible, event‑ready space for galleries, workshops, photo, video, and more. Rent by the hour or become a member for priority access and perks.</p>
       <div class="button-group">
-        <a class="btn-primary" href="#pricing">See Pricing</a>
-        <a class="btn-secondary" href="#spaces">Explore Spaces</a>
+        <a class="btn-primary" href="#contact">Contact</a>
+        <a class="btn-secondary" href="#rentals">Rentals</a>
       </div>
     </div>
   </header>
 
-  <!-- Spaces / Features -->
-  <section id="spaces" class="features">
+  <!-- About -->
+  <section id="about" class="features">
     <h2 class="section-title">Space that spark creativity</h2>
     <p class="section-subtitle">Vibrant, chic, and configurable. Bring your idea—we’ll make room for it.</p>
-
     <div class="cards">
       <!-- <article class="card">
         <span class="chip">Studio A — 900 sq ft</span>
@@ -202,52 +204,26 @@
     </div>
   </section>
 
-  <!-- Pricing -->
+  <!-- Rentals -->
   <section id="pricing">
-    <h2 class="section-title">Simple pricing, no surprises</h2>
-    <p class="section-subtitle">Book by the hour or save with a membership. Day‑rates and student discounts available.</p>
+    <h2 class="section-title">Event & Space Rental</h2>
+    <p class="section-subtitle">We have a spacious common area perfect for art workshops, gallery-style events, classes, meetings, podcasts, and more. 
+      We also offer space for artists or small businesses, subject to availability.</p>
 
     <div class="pricing-grid">
-      <!-- <div class="pricing-card">
-        <h3>Hourly</h3>
-        <div class="price">$45 <span class="period">/ hr (Studio B)</span></div>
-        <p class="pricing-description">Best for short sessions and quick shoots. 2‑hour minimum on weekends.</p>
-        <ul class="features-list">
-          <li>Access to Studio B & common areas</li>
-          <li>Basic lighting kit & grip</li>
-          <li>Host on site for support</li>
-          <li>Reschedule up to 24h before</li>
-        </ul>
-        <button class="select-button" onclick="scrollToContact('Hourly')">Check availability</button>
-      </div> -->
-
-      <!-- <div class="pricing-card featured"> -->
       <div class="pricing-card">
         <!-- <span class="popular-badge">MOST POPULAR</span> -->
-        <h3>Event Day Rate</h3>
-        <div class="price">$400 <span class="period">/ 6 hrs</span></div>
+        <h3>Amenities</h3>
+        <!-- <div class="price">$400 <span class="period">/ 6 hrs</span></div> -->
         <p class="pricing-description">Full event day with amenities access and gear bundle.</p>
         <ul class="features-list">
           <li>Common area lounge included</li>
           <li>Seating, tables, lighting</li>
           <li>Load in bay</li>
-          <li>'Overtime' hours available</li>
-          <!-- <li>Add HMUA room +$40/day</li> -->
+          <li>Wifi</li>
+          <li>kitchenette</li>
         </ul>
         <button class="select-button" onclick="scrollToContact('Day Rate')">Book a day</button>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Membership</h3>
-        <div class="price">$149 <span class="period">/ month</span></div>
-        <p class="pricing-description">For frequent creators—save on every booking and get priority holds.</p>
-        <ul class="features-list">
-          <li>20% off hourly & day rates</li>
-          <li>2 complimentary hours / month</li>
-          <li>Priority weekend slots</li>
-          <li>Member events & showcases</li>
-        </ul>
-        <button class="select-button" onclick="scrollToContact('Membership')">Join now</button>
       </div>
     </div>
   </section>
