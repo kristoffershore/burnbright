@@ -41,6 +41,16 @@
     .nav-links a:hover { color: var(--brand-dark); }
     .cta-button { background:var(--brand-strong); color:#fff; padding:.65rem 1rem; border-radius:8px; text-decoration:none; font-weight:700; box-shadow:0 6px 20px rgba(249,115,22,.25);} 
     .cta-button:hover{ background:var(--brand-dark); }
+    
+    /* Mobile menu */
+    .mobile-menu-btn { display:none; background:none; border:none; cursor:pointer; padding:.5rem; }
+    .mobile-menu-btn span { display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; transition:.3s; }
+    .mobile-nav { display:none; position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(15,23,42,.98); backdrop-filter:blur(10px); z-index:999; padding:5rem 2rem; }
+    .mobile-nav.active { display:block; }
+    .mobile-nav ul { list-style:none; padding:0; }
+    .mobile-nav li { margin:1.5rem 0; }
+    .mobile-nav a { color:#fff; font-size:1.5rem; font-weight:700; text-decoration:none; }
+    .close-menu { position:absolute; top:1.5rem; right:2rem; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; }
 
     /* Hero */
     .hero {
@@ -130,7 +140,10 @@
     footer a{ color:#e2e8f0; }
 
     /* Responsive */
-    @media (max-width: 900px){ .nav-links{ display:none; } }
+    @media (max-width: 900px){ 
+      .nav-links{ display:none; } 
+      .mobile-menu-btn { display:block; }
+    }
     @media (max-width: 768px){
       .hero{ min-height: 64vh; }
       .contact-container{ grid-template-columns: 1fr; }
@@ -151,14 +164,27 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#rentals">Rentals</a></li>
-        <!-- <li><a href="#subscribe">Subscribe</a></li> -->
         <li><a href="#friends">Friends</a></li>
-        <!-- <li><a href="#faq">FAQ</a></li> -->
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <!-- <a class="cta-button" href="#contact">Contact/Booking</a> -->
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="close-menu" onclick="toggleMobileMenu()" aria-label="Close menu">×</button>
+    <ul>
+      <li><a href="#about" onclick="toggleMobileMenu()">About</a></li>
+      <li><a href="#rentals" onclick="toggleMobileMenu()">Rentals</a></li>
+      <li><a href="#friends" onclick="toggleMobileMenu()">Friends</a></li>
+      <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- Hero -->
   <header id="top" class="hero" role="banner">
@@ -178,14 +204,8 @@
     <h2 class="section-title">About Burn Bright</h2>
     <p class="section-subtitle">Burn Bright is a space for artists to come together and be themselves. 
     We offer space for artists and creators that is vibrant, comfortable, and configurable.
-    Bring your idea; we’ll make room for it.</p>
+    Bring your idea; we'll make room for it.</p>
     <div class="cards">
-      <!-- <article class="card">
-        <span class="chip">Studio A — 900 sq ft</span>
-        <h3>Photo / Video Cyclorama</h3>
-        <p>High ceilings, seamless backdrop options, blackout curtains, and overhead grid. Perfect for portraits, products, and content shoots.</p>
-      </article> -->
-
       <article class="card">
         <span class="chip">Host Your Event</span>
         <h3>Lounge / Event Nook</h3>
@@ -250,8 +270,6 @@
     <p class="section-subtitle" style="margin-top:2rem">Pricing shared upon inquiry.</p>
   </section>
 
-  
-
   <!-- How it Works -->
   <section id="how" class="how-it-works">
     <h2 class="section-title">How booking works</h2>
@@ -260,7 +278,7 @@
       <div class="step">
         <div class="step-number">1</div>
         <h3>Send your dates</h3>
-        <p>Tell us what you’re planning, headcount, and preferred time window.</p>
+        <p>Tell us what you're planning, headcount, and preferred time window.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
@@ -270,7 +288,7 @@
       <div class="step">
         <div class="step-number">3</div>
         <h3>Lock it in</h3>
-        <p>Pay the invoice to confirm. We’ll send access info, load‑in notes, and a gear list.</p>
+        <p>Pay the invoice to confirm. We'll send access info, load‑in notes, and a gear list.</p>
       </div>
       <div class="step">
         <div class="step-number">4</div>
@@ -279,48 +297,6 @@
       </div>
     </div>
   </section>
-
-  <!-- <section id="subscribe" class="how-it-works">
-    <h2 class="section-title">Subscribe For Updates</h2>
-    <p class="section-subtitle">Sign up using your email address to stay up to date with news and upcoming events.</p>
-    <form id="bookingForm" action="#" method="POST">
-          
-      <div class="form-row">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="tel" placeholder="(555) 555‑5555" required />
-        </div>
-      </div>
-
-          
-    </form> -->
-    <!-- <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Send your dates</h3>
-        <p>Tell us what you’re planning, headcount, and preferred time window.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Tour or confirm</h3>
-        <p>Come walk the space or jump straight to a soft hold pending payment.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Lock it in</h3>
-        <p>Pay the invoice to confirm. We’ll send access info, load‑in notes, and a gear list.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">4</div>
-        <h3>Create & shine</h3>
-        <p>Host on site for support; add‑ons available if you need extra gear or tech.</p>
-      </div>
-    </div> -->
-  <!-- </section> -->
 
   <!-- House Rules / Requirements -->
   <section class="rules">
@@ -334,7 +310,7 @@
         </div>
         <div>
           <h3>Respect the space</h3>
-          <p>No open flame or haze without prior approval. Tape floors only with gaffer’s. Return gear to carts and leave spaces clean.</p>
+          <p>No open flame or haze without prior approval. Tape floors only with gaffer's. Return gear to carts and leave spaces clean.</p>
         </div>
         <div>
           <h3>Insurance</h3>
@@ -357,33 +333,6 @@
       <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop" alt="Lounge area"/>
     </div>
   </section>
-
-  
-
-  <!-- FAQ -->
-  <!-- <section id="faq" class="faq">
-    <h2 class="section-title">Frequently asked questions</h2>
-    <p class="section-subtitle">If you don’t see your answer here, just ask—we’re friendly.</p>
-
-    <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">What gear is included?<span class="faq-toggle">▼</span></div>
-        <div class="faq-answer">Basic LED panels, stands, sandbags, extension cords, and V‑flats are included. Specialty gear (strobes, continuous kits, mics) is available as an add‑on.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Can I host an audience?<span class="faq-toggle">▼</span></div>
-        <div class="faq-answer">Yes—intimate audience events (up to venue capacity) are allowed with advance notice. Additional staffing and insurance may be required.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Do you offer student rates?<span class="faq-toggle">▼</span></div>
-        <div class="faq-answer">We offer 15% off for students with a valid ID Monday–Thursday, subject to availability.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Is there parking?<span class="faq-toggle">▼</span></div>
-        <div class="faq-answer">Free on‑site parking and street parking are available. Load‑in zone at the rear entrance.</div>
-      </div>
-    </div>
-  </section> -->
 
   <!-- Contact / Booking Form -->
   <section id="contact" class="contact">
@@ -419,15 +368,6 @@
           </div>
 
           <div class="form-row">
-            <!-- <div class="form-group">
-              <label for="space">Space</label>
-              <select id="space" name="space" required>
-                <option value="" disabled selected>Select a space</option>
-                <option>Studio A (cyclorama)</option>
-                <option>Studio B (movement)</option>
-                <option>Lounge / Event</option>
-              </select>
-            </div> -->
             <div class="form-group">
               <label for="date">Preferred date</label>
               <input id="date" name="date" type="date" />
@@ -436,11 +376,11 @@
 
           <div class="form-group">
             <label for="message">Project details</label>
-            <textarea id="message" name="message" placeholder="Tell us what you’re planning, headcount, and ideal time window." required></textarea>
+            <textarea id="message" name="message" placeholder="Tell us what you're planning, headcount, and ideal time window." required></textarea>
           </div>
 
           <button type="submit" class="submit-button">Send request</button>
-          <p class="privacy-note">We’ll never share your info. By submitting you agree to our studio terms.</p>
+          <p class="privacy-note">We'll never share your info. By submitting you agree to our studio terms.</p>
         </form>
       </div>
     </div>
@@ -453,6 +393,12 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
+    function toggleMobileMenu(){
+      document.getElementById('mobileNav').classList.toggle('active');
+      document.body.style.overflow = document.getElementById('mobileNav').classList.contains('active') ? 'hidden' : '';
+    }
+
     // FAQ toggle
     function toggleFaq(el){
       const item = el.parentElement;
@@ -483,7 +429,6 @@
       e.preventDefault();
       alert('Thanks! We\'ll confirm availability shortly.');
       this.reset();
-      document.getElementById('space').selectedIndex = 0;
     });
 
     // Year in footer
