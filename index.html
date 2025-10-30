@@ -33,7 +33,12 @@
       border-bottom: 1px solid var(--line);
     }
     .brand { display:flex; align-items:center; gap:.75rem; text-decoration:none; }
-    .logo-img { height: 44px; width: auto; display:block; }
+    .logo-img {
+      height: 2.5em; /* relative to font-size of nav */
+      width: auto;
+      display: block;
+    }
+
     .brand-name { font-weight:800; letter-spacing:.5px; color:var(--ink); font-size:1.1rem; }
     .nav-right { display:flex; align-items:center; gap:2rem; }
     .nav-links { display:flex; gap:1.25rem; list-style:none; }
