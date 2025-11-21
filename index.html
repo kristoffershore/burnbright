@@ -451,44 +451,55 @@
 
       <div class="form-card">
         <!-- Replace action with your Google Form endpoint if desired -->
-        <form id="bookingForm" action="#" method="POST">
+        <form
+          id="bookingForm"
+          action="https://docs.google.com/forms/u/0/d/1qfi-qi2xzaTtUV-VkFQnWu5wUcHI5ANYZGR3A4x0heM/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          onsubmit="window.formSubmitted = true;"
+        >
           <div class="form-row">
             <div class="form-group">
               <label for="first">First name</label>
-              <input id="first" name="first" type="text" placeholder="Alex" required />
+              <input id="first" name="entry.1160293317" type="text" placeholder="Alex" required />
             </div>
             <div class="form-group">
               <label for="last">Last name</label>
-              <input id="last" name="last" type="text" placeholder="Rivera" required />
+              <input id="last" name="entry.1832831758" type="text" placeholder="Rivera" required />
             </div>
           </div>
-
           <div class="form-row">
             <div class="form-group">
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <input id="email" name="entry.2023523232" type="email" placeholder="you@example.com" required />
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="(555) 555‑5555" required />
+              <input id="phone" name="entry.514081636" type="tel" placeholder="(555) 555‑5555" required />
             </div>
           </div>
-
-          <!-- <div class="form-row">
-            <div class="form-group">
-              <label for="date">Preferred date</label>
-              <input id="date" name="date" type="date" />
-            </div>
-          </div> -->
-
           <div class="form-group">
             <label for="message"></label>
-            <textarea id="message" name="message" placeholder="" required></textarea>
+            <textarea id="message" name="entry.958063340" placeholder="" required></textarea>
           </div>
 
           <button type="submit" class="submit-button">Send request</button>
           <p class="privacy-note">We'll never share your info. By submitting you agree to our studio terms.</p>
         </form>
+        <iframe
+          name="hidden_iframe"
+          id="hidden_iframe"
+          style="display:none;"
+          onload="if (window.formSubmitted) { 
+            document.getElementById('bookingForm').reset(); 
+            alert('Thanks! We\'ll confirm availability shortly.');
+          }"
+        ></iframe>
+        
+        <script>
+          window.formSubmitted = false;
+        </script>
+
       </div>
     </div>
   </section>
@@ -532,13 +543,6 @@
         if(msg && (!msg.value || !msg.value.includes('Interest:'))){ msg.value = `Interest: ${plan}\n` + msg.value; msg.focus(); }
       }, 400);
     }
-
-    // Demo submit (replace with real endpoint or Google Form)
-    document.getElementById('bookingForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Thanks! We\'ll confirm availability shortly.');
-      this.reset();
-    });
 
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
