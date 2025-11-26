@@ -204,6 +204,40 @@
     .contact-visual{ display:none; }
     .form-row{ grid-template-columns: 1fr; }
   }
+
+  /* Artist header + social icon */
+  .artist-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:.75rem;
+  }
+  .artist-header h3{
+    margin:0;
+    font-size:1.15rem;
+    color:var(--coffee-900);
+  }
+  .social-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;
+    height:24px;
+    border-radius:999px;
+    border:1px solid var(--coffee-300);
+    color:var(--coffee-800);
+    text-decoration:none;
+    flex-shrink:0;
+  }
+  .social-link:hover{
+    background:var(--coffee-200);
+    color:var(--coffee-900);
+  }
+  .social-link svg{
+    width:16px;
+    height:16px;
+    display:block;
+  }
 </style>
 
 </head>
@@ -374,7 +408,22 @@
     <div class="artist-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.1); padding:1.5rem;">
       <img src="Images/alyssa.jpg" alt="Alyssa Key" style="width:100%; height:260px; object-fit:cover; border-radius:12px;">
       <div class="artist-qa" style="margin-top:1rem;">
-        <h3>Alyssa Key</h3>
+        <div class="artist-header">
+    <h3>Alyssa Key</h3>
+    <a
+      class="social-link"
+      href="https://instagram.com/ALYSSA_INSTAGRAM_HANDLE"
+      target="_blank"
+      rel="noopener"
+      aria-label="Follow Alyssa Key on Instagram"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.6" />
+        <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6" />
+        <circle cx="17" cy="7" r="1.4" fill="currentColor" />
+      </svg>
+    </a>
+  </div>
         <p><strong>Years in the Industry:</strong> Painting: 3 years.
           <br>
           Creative industries: Since age 5!
