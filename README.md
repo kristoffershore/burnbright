@@ -1,2 +1,2 @@
 # burnbright
-Burn Bright Website
+Website for Burn Bright Studios
