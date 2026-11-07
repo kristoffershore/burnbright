@@ -238,6 +238,96 @@
     height:16px;
     display:block;
   }
+
+  /* Studiomates: compact, uniform portraits */
+  .studiomates-section { background:#f8f7f5; }
+  .studiomate-grid {
+    max-width:1050px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:1.75rem 1.1rem;
+  }
+  .studiomate-card {
+    display:block;
+    min-width:0;
+    width:100%;
+    padding:0;
+    border:0;
+    background:transparent;
+    text-align:left;
+    cursor:pointer;
+    color:var(--ink);
+    font:inherit;
+  }
+  .studiomate-card:focus-visible { outline:3px solid var(--coffee-700); outline-offset:5px; }
+  .studiomate-photo {
+    position:relative;
+    display:block;
+    width:100%;
+    aspect-ratio:4 / 5;
+    overflow:hidden;
+    background:var(--coffee-200);
+    border-radius:4px;
+  }
+  .studiomate-photo > img {
+    display:block;
+    width:100%;
+    height:100%;
+    max-width:100%;
+    object-fit:cover;
+    transition:transform .3s ease;
+  }
+  .studiomate-card:hover .studiomate-photo > img { transform:scale(1.045); }
+  .studiomate-view {
+    position:absolute;
+    left:0;right:0;bottom:0;
+    padding:1.5rem .8rem .65rem;
+    color:white;
+    font-size:.76rem;
+    font-weight:700;
+    background:linear-gradient(transparent,rgba(0,0,0,.63));
+    opacity:0;
+    transition:opacity .2s ease;
+  }
+  .studiomate-card:hover .studiomate-view, .studiomate-card:focus-visible .studiomate-view { opacity:1; }
+  .studiomate-name { display:block; margin-top:.6rem; font-size:1rem; font-weight:750; line-height:1.35; }
+  .studiomate-category { display:block; color:var(--muted); font-size:.82rem; margin-top:.15rem; }
+  .studiomate-dialog {
+    width:min(850px,calc(100vw - 2rem));
+    max-height:min(88vh,900px);
+    padding:0;
+    border:0;
+    border-radius:10px;
+    background:#fff;
+    color:var(--ink);
+    box-shadow:0 22px 80px rgba(0,0,0,.3);
+    overflow:auto;
+  }
+  .studiomate-dialog::backdrop { background:rgba(10,8,7,.75); }
+  .studiomate-dialog-layout { display:grid; grid-template-columns:minmax(0,38%) minmax(0,62%); }
+  .studiomate-dialog-photo { display:block; width:100%; height:100%; max-height:660px; object-fit:cover; background:var(--coffee-200); }
+  .studiomate-dialog-copy { padding:2.2rem; min-width:0; }
+  .studiomate-dialog-eyebrow { font-size:.72rem; letter-spacing:.13em; text-transform:uppercase; color:var(--coffee-700); font-weight:800; }
+  .studiomate-dialog-copy h2 { font-size:clamp(1.6rem,3vw,2.4rem); line-height:1.15; margin:.5rem 2rem .2rem 0; }
+  .studiomate-dialog-category { margin:0 0 1.3rem; color:var(--muted); }
+  .studiomate-bio { font-size:.94rem; line-height:1.7; }
+  .studiomate-bio p { margin:0 0 .9rem; }
+  .studiomate-links { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.5rem; }
+  .studiomate-links a { color:var(--coffee-800); font-weight:750; }
+  .studiomate-close { position:absolute; right:.8rem; top:.6rem; z-index:1; border:0; background:#fff; color:var(--ink); border-radius:50%; width:36px; height:36px; font-size:1.65rem; cursor:pointer; }
+  @media(max-width:800px) {
+    .studiomate-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  }
+  @media(max-width:560px) {
+    .studiomate-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.4rem .8rem; }
+    .studiomate-dialog-layout { grid-template-columns:1fr; }
+    .studiomate-dialog-photo { height:220px; object-position:center 30%; }
+    .studiomate-dialog-copy { padding:1.4rem; }
+    .studiomate-view { opacity:1; font-size:.7rem; }
+  }
+  @media(prefers-reduced-motion:reduce) { .studiomate-photo > img,.studiomate-view { transition:none; } }
+
 </style>
 
 </head>
@@ -272,7 +362,7 @@
     <ul>
       <li><a href="#about" onclick="toggleMobileMenu()">About</a></li>
       <li><a href="#media" onclick="toggleMobileMenu()">Media</a></li>
-      <li><a href="#friends" onclick="toggleMobileMenu()">Friends</a></li>
+      <li><a href="#friends" onclick="toggleMobileMenu()">Studiomates</a></li>
       <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
     </ul>
   </div>
@@ -614,99 +704,4 @@
             </div>
             <div class="form-group">
               <label for="last">Last name</label>
-              <input id="last" name="entry.1832831758" type="text" placeholder="Rivera" required />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input id="email" name="entry.2023523232" type="email" placeholder="you@example.com" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input id="phone" name="entry.514081636" type="tel" placeholder="(555) 555‑5555" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="message"></label>
-            <textarea id="message" name="entry.958063340" placeholder="" required></textarea>
-          </div>
-
-          <button type="submit" class="submit-button">Send request</button>
-          <p class="privacy-note">We'll never share your info. By submitting you agree to our studio terms.</p>
-        </form>
-        <iframe
-          name="hidden_iframe"
-          id="hidden_iframe"
-          style="display:none;"
-          onload="if (window.formSubmitted) { 
-            document.getElementById('bookingForm').reset(); 
-            alert('Thanks! We\'ll get back to you shortly.');
-          }"
-        ></iframe>
-        
-        <script>
-          window.formSubmitted = false;
-        </script>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© <span id="year"></span> Burn Bright. All rights reserved. 
-      <!-- • <a href="#contact">Contact</a> -->
-    </p>
-    <p>600 King St | Jacksonville, FL</p>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    function toggleMobileMenu(){
-      document.getElementById('mobileNav').classList.toggle('active');
-      document.body.style.overflow = document.getElementById('mobileNav').classList.contains('active') ? 'hidden' : '';
-    }
-
-    // FAQ toggle
-    function toggleFaq(el){
-      const item = el.parentElement;
-      document.querySelectorAll('.faq-item').forEach(i => { if(i!==item) i.classList.remove('active'); });
-      item.classList.toggle('active');
-    }
-
-    // Smooth scroll for in-page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
-    });
-
-    // Helper to prefill interest from pricing buttons
-    function scrollToContact(plan){
-      const target = document.getElementById('contact');
-      if(target){ target.scrollIntoView({behavior:'smooth'}); }
-      setTimeout(() => {
-        const msg = document.getElementById('message');
-        if(msg && (!msg.value || !msg.value.includes('Interest:'))){ msg.value = `Interest: ${plan}\n` + msg.value; msg.focus(); }
-      }, 400);
-    }
-
-
-    // Open artist dialogs; native <dialog> handles Escape and focus management.
-    document.querySelectorAll('.studiomate-card').forEach(card => {
-      card.addEventListener('click', () => document.getElementById(card.dataset.profile).showModal());
-    });
-    document.querySelectorAll('.studiomate-dialog').forEach(dialog => {
-      dialog.querySelector('.studiomate-close').addEventListener('click', () => dialog.close());
-      dialog.addEventListener('click', event => {
-        if (event.target === dialog) dialog.close();
-      });
-    });
-
-    // Year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+              <input id="last" name="entry.1832831758" type
