@@ -304,6 +304,7 @@
     box-shadow:0 22px 80px rgba(0,0,0,.3);
     overflow:auto;
   }
+  .studiomate-dialog:not([open]) { display:none; }
   .studiomate-dialog::backdrop { background:rgba(10,8,7,.75); }
   .studiomate-dialog-layout { display:grid; grid-template-columns:minmax(0,38%) minmax(0,62%); }
   .studiomate-dialog-photo { display:block; width:100%; height:100%; max-height:660px; object-fit:cover; background:var(--coffee-200); }
@@ -489,42 +490,42 @@
     <h2 class="section-title">Studiomates</h2>
     <p class="section-subtitle">The people making things here.</p>
     <div class="studiomate-grid">
-      <button class="studiomate-card" type="button" data-profile="studiomate-0" aria-haspopup="dialog" aria-label="Read profile of Alyssa Key">
+      <button class="studiomate-card" type="button" data-profile="studiomate-0" onclick="openStudiomate('studiomate-0')" aria-haspopup="dialog" aria-label="Read profile of Alyssa Key">
         <span class="studiomate-photo"><img src="Images/alyssa.jpg" alt="Alyssa Key" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Alyssa Key</span>
         <span class="studiomate-category">Painting &amp; mixed media</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-1" aria-haspopup="dialog" aria-label="Read profile of Zlatka Angelova">
+      <button class="studiomate-card" type="button" data-profile="studiomate-1" onclick="openStudiomate('studiomate-1')" aria-haspopup="dialog" aria-label="Read profile of Zlatka Angelova">
         <span class="studiomate-photo"><img src="Images/zlatka.JPG" alt="Zlatka Angelova" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Zlatka Angelova</span>
         <span class="studiomate-category">Painting &amp; watercolor</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-2" aria-haspopup="dialog" aria-label="Read profile of Talent &amp; Artists Collective | TAC">
+      <button class="studiomate-card" type="button" data-profile="studiomate-2" onclick="openStudiomate('studiomate-2')" aria-haspopup="dialog" aria-label="Read profile of Talent &amp; Artists Collective | TAC">
         <span class="studiomate-photo"><img src="Images/talent-artists.jpg" alt="Talent &amp; Artists Collective | TAC" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Talent &amp; Artists Collective | TAC</span>
         <span class="studiomate-category">Creative collective</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-3" aria-haspopup="dialog" aria-label="Read profile of Manic Quarantine Designs">
+      <button class="studiomate-card" type="button" data-profile="studiomate-3" onclick="openStudiomate('studiomate-3')" aria-haspopup="dialog" aria-label="Read profile of Manic Quarantine Designs">
         <span class="studiomate-photo"><img src="Images/meg.jpg" alt="Manic Quarantine Designs" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Manic Quarantine Designs</span>
         <span class="studiomate-category">Fashion &amp; design</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-4" aria-haspopup="dialog" aria-label="Read profile of O&#x27;Brian Guitarworks">
+      <button class="studiomate-card" type="button" data-profile="studiomate-4" onclick="openStudiomate('studiomate-4')" aria-haspopup="dialog" aria-label="Read profile of O&#x27;Brian Guitarworks">
         <span class="studiomate-photo"><img src="Images/lorance.PNG" alt="O&#x27;Brian Guitarworks" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">O&#x27;Brian Guitarworks</span>
         <span class="studiomate-category">Guitar repair &amp; music</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-5" aria-haspopup="dialog" aria-label="Read profile of Erica Gillman">
+      <button class="studiomate-card" type="button" data-profile="studiomate-5" onclick="openStudiomate('studiomate-5')" aria-haspopup="dialog" aria-label="Read profile of Erica Gillman">
         <span class="studiomate-photo"><img src="Images/IMG_2699.JPG" alt="Erica Gillman" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Erica Gillman</span>
         <span class="studiomate-category">Ceramic arts</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-6" aria-haspopup="dialog" aria-label="Read profile of Mark Zimmerman">
+      <button class="studiomate-card" type="button" data-profile="studiomate-6" onclick="openStudiomate('studiomate-6')" aria-haspopup="dialog" aria-label="Read profile of Mark Zimmerman">
         <span class="studiomate-photo"><img src="Images/Mark_S_Zimmerman.JPEG" alt="Mark Zimmerman" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Mark Zimmerman</span>
         <span class="studiomate-category">Photography &amp; video</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-7" aria-haspopup="dialog" aria-label="Read profile of Stacy Streeter">
+      <button class="studiomate-card" type="button" data-profile="studiomate-7" onclick="openStudiomate('studiomate-7')" aria-haspopup="dialog" aria-label="Read profile of Stacy Streeter">
         <span class="studiomate-photo"><img src="Images/stacystreeter.JPEG" alt="Stacy Streeter" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Stacy Streeter</span>
         <span class="studiomate-category">Multidisciplinary artist</span>
@@ -534,7 +535,7 @@
 
   <!-- Artist profiles: each native dialog is keyboard accessible and closes with Escape -->
   <dialog class="studiomate-dialog" id="studiomate-0" aria-labelledby="studiomate-title-0">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/alyssa.jpg" alt="Alyssa Key" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -556,7 +557,7 @@
     </div>
   </dialog>
   <dialog class="studiomate-dialog" id="studiomate-1" aria-labelledby="studiomate-title-1">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/zlatka.JPG" alt="Zlatka Angelova" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -574,7 +575,7 @@
     </div>
   </dialog>
   <dialog class="studiomate-dialog" id="studiomate-2" aria-labelledby="studiomate-title-2">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/talent-artists.jpg" alt="Talent &amp; Artists Collective | TAC" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -591,7 +592,7 @@
     </div>
   </dialog>
   <dialog class="studiomate-dialog" id="studiomate-3" aria-labelledby="studiomate-title-3">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/meg.jpg" alt="Manic Quarantine Designs" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -609,7 +610,7 @@
     </div>
   </dialog>
   <dialog class="studiomate-dialog" id="studiomate-4" aria-labelledby="studiomate-title-4">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/lorance.PNG" alt="O&#x27;Brian Guitarworks" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -627,7 +628,7 @@
     </div>
   </dialog>
   <dialog class="studiomate-dialog" id="studiomate-5" aria-labelledby="studiomate-title-5">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/IMG_2699.JPG" alt="Erica Gillman" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -642,7 +643,7 @@
     </div>
   </dialog>
   <dialog class="studiomate-dialog" id="studiomate-6" aria-labelledby="studiomate-title-6">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/Mark_S_Zimmerman.JPEG" alt="Mark Zimmerman" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -661,7 +662,7 @@
     </div>
   </dialog>
   <dialog class="studiomate-dialog" id="studiomate-7" aria-labelledby="studiomate-title-7">
-    <button class="studiomate-close" type="button" aria-label="Close profile">×</button>
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
     <div class="studiomate-dialog-layout">
       <img class="studiomate-dialog-photo" src="Images/stacystreeter.JPEG" alt="Stacy Streeter" loading="lazy">
       <div class="studiomate-dialog-copy">
@@ -689,19 +690,4 @@
       <div class="contact-visual" aria-hidden="true"></div>
 
       <div class="form-card">
-        <!-- Replace action with your Google Form endpoint if desired -->
-        <form
-          id="bookingForm"
-          action="https://docs.google.com/forms/u/0/d/1qfi-qi2xzaTtUV-VkFQnWu5wUcHI5ANYZGR3A4x0heM/formResponse"
-          method="POST"
-          target="hidden_iframe"
-          onsubmit="window.formSubmitted = true;"
-        >
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first">First name</label>
-              <input id="first" name="entry.1160293317" type="text" placeholder="Alex" required />
-            </div>
-            <div class="form-group">
-              <label for="last">Last name</label>
-              <input id="last" name="entry.1832831758" type
+        <!-- Replace act
