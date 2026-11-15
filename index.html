@@ -535,10 +535,15 @@
         <span class="studiomate-name">Keith Bartholomew</span>
         <span class="studiomate-category">Photographer</span>
       </button>
-      <button class="studiomate-card" type="button" data-profile="studiomate-9" onclick="openStudiomate('studiomate-9')" aria-haspopup="dialog" aria-label="Read profile of Keith Bartholomew">
+      <button class="studiomate-card" type="button" data-profile="studiomate-9" onclick="openStudiomate('studiomate-9')" aria-haspopup="dialog" aria-label="Read profile of Manatee Printing">
         <span class="studiomate-photo"><img src="Images/Manatee_Print.JPEG" alt="Manatee Print Company" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
         <span class="studiomate-name">Manatee Print Company</span>
         <span class="studiomate-category">Screen Printing</span>
+      </button>
+      <button class="studiomate-card" type="button" data-profile="studiomate-10" onclick="openStudiomate('studiomate-10')" aria-haspopup="dialog" aria-label="Read profile of Jenn Veal">
+        <span class="studiomate-photo"><img src="Images/jenn_veal.JPEG" alt="Jenn Veal" loading="lazy"><span class="studiomate-view">View profile ↗</span></span>
+        <span class="studiomate-name">Jenn Veal</span>
+        <span class="studiomate-category">Painting &amp; oil, spray paint</span>
       </button>
     </div>
   </section>
@@ -922,6 +927,65 @@
         <div class="studiomate-links">
           <!-- <a href="https://www.instagram.com/markzimmerman.artist/" target="_blank" rel="noopener noreferrer">Instagram ↗</a> -->
           <a href="https://www.instagram.com/manateeprintcompany/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="social-link"
+             aria-label="View artist on Instagram">
+          
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18"
+                    rx="5" ry="5" fill="none"
+                    stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="12" cy="12" r="5"
+                      fill="none" stroke="currentColor"
+                      stroke-width="1.6"/>
+              <circle cx="17" cy="7" r="1.4"
+                      fill="currentColor"/>
+            </svg>
+          </a>      
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+
+  <!-- Jenn Veal
+
+Years in the Industry: Over 20 years of experience creating commissioned artwork, with a focus on murals and public art since 2020.
+
+Preferred Medium: My primary mediums are oil on canvas and spray paint for murals. I also enjoy working with acrylic, watercolor, graphite, pastel, charcoal, and ink. 
+
+Previous Chapters / Background: Art has been a part of my life for as long as I can remember. I've always had a big imagination, and creating became a natural way for me to express myself from an early age. That creativity extended into dance, which was another meaningful outlet for me growing up. I spent many years working in hospitality while continuing to paint, take commissions, and sell my artwork. In 2020, I transitioned into pursuing art full-time, expanding my practice into spray paint and large-scale public murals. 
+
+Education: I attended the Florida School of the Arts on a full scholarship and graduated in 2005 with an Associate of Arts degree in Fine Arts.
+
+Personal Life / Hobbies: I love live music, stand-up comedy, traveling, and spending time in nature. I also enjoy gardening, yoga, fitness, and, of course, my cats! I value my friends and the creative communities that have become family along the way.
+
+Anything Else? I'm inspired by the human experience, animals, the natural world, and the ways we connect with one another and our surroundings. Through my work, I hope to evoke emotion, create a sense of connection, and leave room for viewers to find their own meaning in what they see.
+
+
+Website: jennvealart.com -->
+
+  <dialog class="studiomate-dialog" id="studiomate-10" aria-labelledby="studiomate-title-10">
+    <button class="studiomate-close" type="button" onclick="this.closest('dialog').close()" aria-label="Close profile">×</button>
+    <div class="studiomate-dialog-layout">
+      <img class="studiomate-dialog-photo" src="Images/jenn_veal.JPEG" alt="Jenn Veal" loading="lazy">
+      <div class="studiomate-dialog-copy">
+        <span class="studiomate-dialog-eyebrow">Burn Bright / Studiomates</span>
+        <h2 id="studiomate-title-9">Jenn Veal</h2>
+        <p class="studiomate-dialog-category">Paintingt</p>
+        <div class="studiomate-bio">
+          <!-- <p><strong>Years in the Industry:</strong>13 years</p> -->
+          <p><strong>Preferred Mediums:</strong> My primary mediums are oil on canvas and spray paint for murals. I also enjoy working with acrylic, watercolor, graphite, pastel, charcoal, and ink.</p>
+          <!-- <p><strong>Preferred Subject:</strong> Everything! I love landscapes, nightscapes, and timelapse almost as much as I love creating amazing, interesting, and personal portraits.</p>  -->
+          <p><strong>Previous Chapters/Background:</strong> Art has been a part of my life for as long as I can remember. I've always had a big imagination, and creating became a natural way for me to express myself from an early age. That creativity extended into dance, which was another meaningful outlet for me growing up. I spent many years working in hospitality while continuing to paint, take commissions, and sell my artwork. In 2020, I transitioned into pursuing art full-time, expanding my practice into spray paint and large-scale public murals. </p>
+          <p><strong>Education:</strong> I attended the Florida School of the Arts on a full scholarship and graduated in 2005 with an Associate of Arts degree in Fine Arts.</p>
+          <p><strong>Personal Life / Hobbies:</strong> I love live music, stand-up comedy, traveling, and spending time in nature. I also enjoy gardening, yoga, fitness, and, of course, my cats! I value my friends and the creative communities that have become family along the way.</p>
+          <p><strong>Anything Else?</strong> I'm inspired by the human experience, animals, the natural world, and the ways we connect with one another and our surroundings. Through my work, I hope to evoke emotion, create a sense of connection, and leave room for viewers to find their own meaning in what they see.</p></div>
+          <p><strong>Website:</strong> jennvealart.com</p>
+        <div class="studiomate-links">
+          <!-- <a href="https://www.instagram.com/markzimmerman.artist/" target="_blank" rel="noopener noreferrer">Instagram ↗</a> -->
+          <a href="https://www.instagram.com/jennvealart"
              target="_blank"
              rel="noopener noreferrer"
              class="social-link"
